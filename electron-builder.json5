@@ -10,16 +10,8 @@
   ],
   "win": {
     "target": [
-      {
-        "target": "nsis",
-        "arch": [
-          "x64"
-        ]
-      },
-      {
-        "target": "portable",
-        "arch": ["x64"]
-      }
+      "portable", 
+      "nsis"
     ],
     "artifactName": "${productName}_${version}.${ext}"
   },
@@ -38,7 +30,6 @@
     "provider": "github",
     "owner": "kisenna",
     "repo": "Nikke-Rich-Presence",
-    "channel": "latest",
-    "url": "https://github.com/electron-vite/electron-vite-react/releases/download/v0.9.9/"
+    "channel": "latest"
   }
 }

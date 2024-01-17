@@ -39,6 +39,11 @@ if (!app.requestSingleInstanceLock()) {
   process.exit(0)
 }
 
+app.setLoginItemSettings({
+  openAtLogin: true,
+  openAsHidden: true
+})
+
 // Remove electron security warnings
 // This warning only shows in development mode
 // Read more on https://www.electronjs.org/docs/latest/tutorial/security
@@ -60,7 +65,7 @@ const createWindow = async() => {
     resizable: false,
     roundedCorners: true,
     title: 'Main window',
-    icon: join(process.env.VITE_PUBLIC, 'apps.png'),
+    icon: join(process.env.VITE_PUBLIC, 'icon.png'),
     webPreferences: {
       preload,
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
@@ -83,7 +88,7 @@ const createWindow = async() => {
   win.setMenu(null)
 
   // Tray
-  const trayIcon = new Tray(join(process.env.VITE_PUBLIC, 'apps.png'))
+  const trayIcon = new Tray(join(process.env.VITE_PUBLIC, 'icon.png'))
   trayIcon.setToolTip('Nikke Rich Presence')
 
   const contextMenu = Menu.buildFromTemplate([
