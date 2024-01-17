@@ -30,6 +30,7 @@
     "provider": "github",
     "owner": "kisenna",
     "repo": "Nikke-Rich-Presence",
-    "channel": "latest"
+    "channel": "latest",
+    "token": "process.env.GH_TOKEN"
   }
 }
