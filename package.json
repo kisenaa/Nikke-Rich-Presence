@@ -1,0 +1,65 @@
+{
+  "name": "Nikke-Rich-Presence",
+  "version": "1.0.0",
+  "main": "dist-electron/main/index.js",
+  "description": ".",
+  "author": "kisenna",
+  "license": "MIT",
+  "private": true,
+  "debug": {
+    "env": {
+      "VITE_DEV_SERVER_URL": "http://127.0.0.1:7777/"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && electron-builder",
+    "preview": "vite preview",
+    "format": "prettier -w .",
+    "lint:fix": "eslint src electron --fix",
+    "publish": "electron-builder -p always"
+  },
+  "dependencies": {
+    "@breush/ffi-napi": "^4.0.13",
+    "@breush/ref-napi": "^4.0.9",
+    "electron-updater": "^6.1.1",
+    "win32-def": "^20.4.1"
+  },
+  "devDependencies": {
+    "@types/ffi-napi": "^4.0.10",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "@types/ref-napi": "^3.0.12",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "@vitejs/plugin-react": "^4.0.4",
+    "@xhayper/discord-rpc": "^1.1.2",
+    "autoprefixer": "^10.4.16",
+    "electron": "^28.1.1",
+    "electron-builder": "^24.6.3",
+    "electron-store": "^8.1.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-tailwindcss": "^3.13.1",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "million": "^2.6.4",
+    "postcss": "^8.4.31",
+    "prettier": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.5.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.3",
+    "tree-kill": "^1.2.2",
+    "typescript": "^5.1.6",
+    "vite": "^5.0.10",
+    "vite-plugin-compression2": "^0.11.0",
+    "vite-plugin-electron": "^0.15.5",
+    "vite-plugin-electron-renderer": "^0.14.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

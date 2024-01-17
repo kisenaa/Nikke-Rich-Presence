@@ -1,0 +1,44 @@
+{
+  "appId": "com.electron.nikke-rich-presence",
+  "asar": true,
+  "directories": {
+    "output": "release/${version}"
+  },
+  "files": [
+    "dist-electron",
+    "dist"
+  ],
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      },
+      {
+        "target": "portable",
+        "arch": ["x64"]
+      }
+    ],
+    "artifactName": "${productName}_${version}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": true,
+    "createDesktopShortcut": true,
+    "useZip": true
+  },
+  "portable": {
+    "useZip": true
+  },
+  "publish": {
+    "provider": "github",
+    "owner": "kisenna",
+    "repo": "Nikke-Rich-Presence",
+    "channel": "latest",
+    "url": "https://github.com/electron-vite/electron-vite-react/releases/download/v0.9.9/"
+  }
+}
