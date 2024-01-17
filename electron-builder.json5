@@ -21,16 +21,11 @@
     "allowToChangeInstallationDirectory": true,
     "deleteAppDataOnUninstall": true,
     "createDesktopShortcut": true,
-    "useZip": true
-  },
-  "portable": {
-    "useZip": true
   },
   "publish": {
     "provider": "github",
-    "owner": "kisenna",
+    "owner": "kisenaa",
     "repo": "Nikke-Rich-Presence",
     "channel": "latest",
-    "token": "process.env.GH_TOKEN"
   }
 }

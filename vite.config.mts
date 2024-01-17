@@ -26,7 +26,6 @@ export default defineConfig(({ command }) => {
     plugins: [million.vite({ auto: {threshold: 0.01} }), 
 
       react(),
-      compression({ algorithm: 'brotliCompress',include: [/\.(css)$/, /\.(js)$/,/\.(gz)$/], exclude: [/\.(png)$/, /\.(svg)$/,/\.(ico)$/], deleteOriginalAssets: true }),
       electron([
         {
           // Main-Process entry file of the Electron App.
