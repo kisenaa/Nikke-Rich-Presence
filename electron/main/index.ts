@@ -34,7 +34,7 @@ app.setLoginItemSettings({
     args: ["--process-start-args", "--hidden"]
   })
 // Disable GPU Acceleration for Windows 7
-if (release().startsWith('6.1')) {app.disableHardwareAcceleration()}
+app.disableHardwareAcceleration()
 
 // Set application name for Windows 10+ notifications
 if (process.platform === 'win32') app.setAppUserModelId(app.getName())
@@ -67,6 +67,7 @@ const createWindow = async() => {
     height: 550,
     resizable: false,
     roundedCorners: true,
+    backgroundColor: '#fff',
     title: 'Main window',
     icon: join(process.env.VITE_PUBLIC, 'icon.png'),
     webPreferences: {
@@ -200,17 +201,16 @@ app.on('window-all-closed', () => {
 })
 
 app.on('second-instance', () => {
-  if (win) {
-    // Focus on the main window if the user tried to open another
-    if (win.isMinimized()) win.restore()
-    win.show()
-    win.focus()
-  }
+  win?.restore()
+  win?.show()
+  win?.focus()
 })
 
 app.on('activate', () => {
   const allWindows = BrowserWindow.getAllWindows()
   if (allWindows.length) {
+    allWindows[0].restore()
+    allWindows[0].show()
     allWindows[0].focus()
   } else {
     createWindow()
