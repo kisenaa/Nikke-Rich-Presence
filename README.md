@@ -1,5 +1,5 @@
 ## :cyclone: Overview
-This is a Discord Rich Presence for Nikke (Goddess of Victory: Nikke) on PC client.
+This is a Discord Rich Presence for Nikke (Goddess of Victory: Nikke) on PC client. (Nikke Discord Rich Presence)
 
 It will only active on your discord profile when nikke and discord client is open.
 
