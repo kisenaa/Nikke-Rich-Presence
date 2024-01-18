@@ -92,14 +92,17 @@ contextBridge.exposeInMainWorld('Bridge', {
   /* 
   Main -> Renderer
   */
-  onMessageFromMain: (callback: any) => ipcRenderer.on('messages', callback),
   setDiscord: (callback: any) => ipcRenderer.on('setDiscord', callback),
   setIsDiscordOn: (callback: any) => ipcRenderer.on('setIsDiscordOn', callback),
   setIsNikkeFound: (callback: any) => ipcRenderer.on('setIsNikkeFound', callback),
+  // Cleanup Listener
+  removeSetDiscord: () => ipcRenderer.removeAllListeners("setDiscord"),
+  removeIsDiscordOn: () => ipcRenderer.removeAllListeners("setIsDiscordOn"),
+  removeIsNikkeFound: () => ipcRenderer.removeAllListeners("setIsNikkeFound"),
+
   /*
   Renderer -> Main
   */
-  messageResponse: (value: string) => ipcRenderer.send('response-back', value),
   setRichPresence: (status: boolean) => ipcRenderer.send('setRichPresence', status),
   store: {
     get(key:string) {
@@ -108,5 +111,7 @@ contextBridge.exposeInMainWorld('Bridge', {
     set(property:string, val:any) {
       ipcRenderer.send('electron-store-set', property, val);
     },
-  },
+  }
 })
+
+ipcRenderer.removeAllListeners

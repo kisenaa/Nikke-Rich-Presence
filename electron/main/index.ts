@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain,Menu, shell, Tray} from 'electron'
+import { app, BrowserWindow, ipcMain,ipcRenderer,Menu, shell, Tray} from 'electron'
 import Store from 'electron-store';
 import { release } from 'node:os'
 import { join } from 'node:path'
@@ -21,15 +21,20 @@ setFlagsFromString('--expose_gc');
 export const gc = runInNewContext('gc'); // nocommit
 
 //
-process.traceProcessWarnings = true
+process.setMaxListeners(20)
 process.env.DIST_ELECTRON = join(__dirname, '../')
 process.env.DIST = join(process.env.DIST_ELECTRON, '../dist')
 process.env.VITE_PUBLIC = process.env.VITE_DEV_SERVER_URL
   ? join(process.env.DIST_ELECTRON, '../public')
   : process.env.DIST
-
+  
+app.setLoginItemSettings({
+    openAtLogin: true,
+    openAsHidden: true,
+    args: ["--process-start-args", "--hidden"]
+  })
 // Disable GPU Acceleration for Windows 7
-if (release().startsWith('6.1')) app.disableHardwareAcceleration()
+if (release().startsWith('6.1')) {app.disableHardwareAcceleration()}
 
 // Set application name for Windows 10+ notifications
 if (process.platform === 'win32') app.setAppUserModelId(app.getName())
@@ -39,10 +44,6 @@ if (!app.requestSingleInstanceLock()) {
   process.exit(0)
 }
 
-app.setLoginItemSettings({
-  openAtLogin: true,
-  openAsHidden: true
-})
 
 // Remove electron security warnings
 // This warning only shows in development mode
@@ -50,6 +51,7 @@ app.setLoginItemSettings({
 // process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
 
 let win: BrowserWindow | null = null
+let isHidden = false
 // Here, you can also use other preload
 const preload = join(__dirname, '../preload/index.js')
 const url = process.env.VITE_DEV_SERVER_URL
@@ -59,6 +61,7 @@ const store = new Store();
 
 
 const createWindow = async() => {
+
   win = new BrowserWindow({
     width: 800,
     height: 550,
@@ -103,6 +106,26 @@ const createWindow = async() => {
 
   trayIcon.setContextMenu(contextMenu)
 
+  const args = process.argv
+
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === '--hidden' || args[i] === 'hidden') {
+      isHidden = true
+      win.hide()
+    }
+  }
+
+  if (!isHidden) {
+    const execArgv = process.execArgv
+  
+    for (let i = 0; i < execArgv.length; i++) {
+      if (execArgv[i] === '--hidden' || execArgv[i] === 'hidden' ) {
+        isHidden = true
+        win.hide()
+      }
+    }
+  }
+
   // Make all links open with the browser, not with the application
   win.webContents.setWindowOpenHandler(({ url }) => {
     if (url.startsWith('https:')) shell.openExternal(url)
@@ -110,7 +133,6 @@ const createWindow = async() => {
   })
 
   win.webContents.on('did-finish-load', async () => {
-    win?.webContents.send('messages', 'Hello Word From Mains')
     await AttemptLogin()
     EnableRichPresence()
   })
@@ -146,10 +168,6 @@ app.whenReady().then(async () => {
 
   await createWindow()
 
-  ipcMain.on('response-back', async(_event, value) => {
-    console.log("got a response: ", value)
-  })
-
   ipcMain.on('setRichPresence', async(_event, status) => {
     status == true ? EnableRichPresence() : DisableRichPresence()
   })
@@ -164,7 +182,17 @@ app.whenReady().then(async () => {
     else if (key == 'states') setStates(val)
     store.set(key, val);
   });
+
+  if (isHidden) {
+    win?.hide()
+  }
 })
+
+app.on('before-quit', () => {
+  ipcMain.removeAllListeners()
+  ipcMain.removeAllListeners
+  ipcRenderer.removeAllListeners
+});
 
 app.on('window-all-closed', () => {
   win = null
@@ -175,6 +203,7 @@ app.on('second-instance', () => {
   if (win) {
     // Focus on the main window if the user tried to open another
     if (win.isMinimized()) win.restore()
+    win.show()
     win.focus()
   }
 })

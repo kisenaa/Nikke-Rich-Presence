@@ -8,6 +8,7 @@ export const client = new Client({
     clientId: "1196659687970586676"
 });
 
+
 const lpszClass = Buffer.from("UnityWndClass\0", 'ucs2')
 const lpszWindow = Buffer.from("NIKKE\0", 'ucs2')
 const lpdwProcessId = Buffer.allocUnsafe(8)

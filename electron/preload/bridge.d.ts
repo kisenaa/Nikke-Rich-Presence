@@ -18,6 +18,10 @@ interface BridgeAPI {
   setDiscord(callback: ICallback): void;
   setIsDiscordOn(callback: ICallback): void;
   setIsNikkeFound(callback: ICallback): void;
+  removeSetDiscord(): void;
+  removeIsDiscordOn(): void;
+  removeIsNikkeFound(): void;
+
   /*
   Renderer -> Main
   */

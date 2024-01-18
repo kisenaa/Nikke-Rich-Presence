@@ -10,10 +10,11 @@
   ],
   "win": {
     "target": [
-      "portable", 
-      "nsis"
-    ],
-    "artifactName": "${productName}_${version}.${ext}"
+      {"target": "nsis", "arch":"x64"}, 
+      {"target": "portable", "arch":"x64"},
+      {"target": "zip", "arch":"x64"},
+      {"target": "msi", "arch":"x64"}
+    ]
   },
   "nsis": {
     "oneClick": false,
@@ -21,11 +22,18 @@
     "allowToChangeInstallationDirectory": true,
     "deleteAppDataOnUninstall": true,
     "createDesktopShortcut": true,
+    "createStartMenuShortcut": true
+  },
+  "msi": {
+    "oneClick": false,
+    "perMachine": false,
+    "createStartMenuShortcut": true,
+    "createDesktopShortcut": true
   },
   "publish": {
     "provider": "github",
     "owner": "kisenaa",
     "repo": "Nikke-Rich-Presence",
-    "channel": "latest",
+    "channel": "latest"
   }
 }

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
+import {FaGithub} from 'react-icons/fa'
 
+import discordImg from './assets/discordblue.png'
 import RpcImage from './components/RpcImage'
 import { DiscordInfo } from './types/Discord'
-
 
 function App() {
 
@@ -28,9 +29,6 @@ function App() {
     setDetails(window.Bridge.store.get('details'))
     setStates(window.Bridge.store.get('states'))
 
-    window.Bridge.onMessageFromMain((_event, value) => {
-      console.log('Got from main: ', value as string)
-    })
 
     window.Bridge.setDiscord((_event, value) => {
       const discordInfo = value as DiscordInfo
@@ -45,6 +43,12 @@ function App() {
     window.Bridge.setIsNikkeFound((_event, value) => {
       setIsNikkeFound(value as boolean)
     })
+
+    return() => {
+      window.Bridge.removeSetDiscord()
+      window.Bridge.removeIsDiscordOn()
+      window.Bridge.removeIsNikkeFound()
+    }
   },[])
 
 
@@ -87,7 +91,7 @@ function App() {
 
         <div className='items-center pt-3'>
           <div className='flex gap-3'>
-          <img className="rounded-full" src={(profileLink != null) ? profileLink : "/discordblue.png"} alt="profile-pic" width={75} />
+          <img className="rounded-full" src={(profileLink != null) ? profileLink : discordImg} alt="profile-pic" width={75} />
             <span className='flex items-center justify-center text-lg font-semibold'>{username}</span>
           </div>
 
@@ -135,7 +139,13 @@ function App() {
         </div>
       </div>
 
+      <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center space-x-2 text-center">
+        <a href="https://github.com/kisenaa/Nikke-Rich-Presence" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-500 no-underline">
+          <FaGithub />
+          <span className='font-semibold'>github.com/kisenaa/Nikke-Rich-Presence</span>
+        </a>
     </div>
+  </div>
   )
 }
 
