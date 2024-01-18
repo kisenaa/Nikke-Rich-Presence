@@ -26,3 +26,6 @@ https://github.com/kisenaa/Nikke-Rich-Presence/assets/115395772/05d01939-ebf7-49
 * If you changed the image,states or details, make sure to **disable and enable** it again for the changes to take effect
 * If you try to minimize or close the program, It will minimize to tray . So if you want to show/close the app, do it from tray
 * The app will autolaunch at startup. There is no need to open the file again
+
+tags (ignore) :
+Nikke discord rich presence
