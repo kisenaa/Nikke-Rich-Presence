@@ -10,6 +10,13 @@ Portable executable zip: [Download](https://github.com/kisenaa/Nikke-Rich-Presen
 Setup executable zip: [Download](https://github.com/kisenaa/Nikke-Rich-Presence/releases/download/v1.1.0/Nikke-Rich-Presence_1.1.0_setup.zip)   
 Msi executable zip: [Download](https://github.com/kisenaa/Nikke-Rich-Presence/releases/download/v1.1.0/Nikke-Rich-Presence_1.1.0_msi.zip) 
 
+## ⚡ Demo
+https://github.com/kisenaa/Nikke-Rich-Presence/assets/115395772/05d01939-ebf7-4979-b08e-bde76edb1a8d
+
+* If you changed the image,states or details, make sure to **disable and enable** it again for the changes to take effect
+* If you try to minimize or close the program, It will minimize to tray . So if you want to show/close the app, do it from tray
+* The app will autolaunch at startup. There is no need to open the file again
+
 ## 🔨 Quick Installation Guide
 1. Make sure to download one of the zip file
 2. Extract the zip using winrar or similar program
@@ -19,13 +26,6 @@ Msi executable zip: [Download](https://github.com/kisenaa/Nikke-Rich-Presence/re
 6. Open up discord and Nikke game to show the rich presence
 7. If you want to change the image,states and details, make sure to **disable and enable** it again
 8. If you minimize or close the program, it will hide to tray. So show/close the app again via tray
-
-## ⚡ Demo
-https://github.com/kisenaa/Nikke-Rich-Presence/assets/115395772/05d01939-ebf7-4979-b08e-bde76edb1a8d
-
-* If you changed the image,states or details, make sure to **disable and enable** it again for the changes to take effect
-* If you try to minimize or close the program, It will minimize to tray . So if you want to show/close the app, do it from tray
-* The app will autolaunch at startup. There is no need to open the file again
 
 tags (ignore) :
 Nikke discord rich presence
