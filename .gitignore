@@ -15,6 +15,8 @@ release
 *.local
 
 # Editor directories and files
+vscode
+.vscode
 .vscode/.debug.env
 .idea
 .DS_Store
@@ -31,3 +33,12 @@ yarn.lock
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+env
+.env
+electron-builder.json
+.electron-builder.json
+.build
+build
+postcss.config.cjs
+.postcss.config.cjs
