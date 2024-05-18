@@ -1,5 +1,5 @@
 ## :cyclone: Overview
-This is a Discord Rich Presence for Nikke (Goddess of Victory: Nikke) on PC client.
+This is a Discord Rich Presence for Nikke (Goddess of Victory: Nikke) on PC client. (Nikke Discord Rich Presence)
 
 It will only active on your discord profile when nikke and discord client is open.
 
@@ -9,6 +9,13 @@ You can download directly from [Releases page](https://github.com/kisenaa/Nikke-
 Portable executable zip: [Download](https://github.com/kisenaa/Nikke-Rich-Presence/releases/download/v1.1.0/Nikke-Rich-Presence_1.1.0_portable.zip)   
 Setup executable zip: [Download](https://github.com/kisenaa/Nikke-Rich-Presence/releases/download/v1.1.0/Nikke-Rich-Presence_1.1.0_setup.zip)   
 Msi executable zip: [Download](https://github.com/kisenaa/Nikke-Rich-Presence/releases/download/v1.1.0/Nikke-Rich-Presence_1.1.0_msi.zip) 
+
+## ⚡ Demo
+https://github.com/kisenaa/Nikke-Rich-Presence/assets/115395772/05d01939-ebf7-4979-b08e-bde76edb1a8d
+
+* If you changed the image,states or details, make sure to **disable and enable** it again for the changes to take effect
+* If you try to minimize or close the program, It will minimize to tray . So if you want to show/close the app, do it from tray
+* The app will autolaunch at startup. There is no need to open the file again
 
 ## 🔨 Quick Installation Guide
 1. Make sure to download one of the zip file
@@ -20,9 +27,5 @@ Msi executable zip: [Download](https://github.com/kisenaa/Nikke-Rich-Presence/re
 7. If you want to change the image,states and details, make sure to **disable and enable** it again
 8. If you minimize or close the program, it will hide to tray. So show/close the app again via tray
 
-## ⚡ Demo
-https://github.com/kisenaa/Nikke-Rich-Presence/assets/115395772/05d01939-ebf7-4979-b08e-bde76edb1a8d
-
-* If you changed the image,states or details, make sure to **disable and enable** it again for the changes to take effect
-* If you try to minimize or close the program, It will minimize to tray . So if you want to show/close the app, do it from tray
-* The app will autolaunch at startup. There is no need to open the file again
+tags (ignore) :
+Nikke discord rich presence
