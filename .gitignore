@@ -42,3 +42,10 @@ electron-builder.json
 build
 postcss.config.cjs
 .postcss.config.cjs
+
+.npmrc
+./.npmrc
+tailwind.config.js
+tsconfig.node.json
+.tailwind.config.js
+.tsconfig.node.json
