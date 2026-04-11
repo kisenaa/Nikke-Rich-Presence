@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "NikkeDiscordRPC (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "NikkeDiscordRPC (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -1,0 +1,265 @@
+<Page
+    x:Class="NikkeDiscordRPC.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <Grid Padding="48,28,72,28">
+            <StackPanel Spacing="28">
+                <TextBlock Text="Application Preferences"
+                           Style="{ThemeResource BodyLargeStrongTextBlockStyle}"
+                           Opacity="0.6"/>
+
+                <Border Padding="30"
+                        CornerRadius="12"
+                        HorizontalAlignment="Stretch"
+                        Background="{ThemeResource CardBackgroundFillColorSecondaryBrush}"
+                        BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
+                        BorderThickness="1">
+
+                    <StackPanel Spacing="18">
+
+                        <!-- Process Priority -->
+                        <Grid ColumnSpacing="12">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                                <FontIcon Glyph="&#xE7FC;"
+                                          FontFamily="Segoe Fluent Icons"
+                                          VerticalAlignment="Center"
+                                          Margin="0,4,0,0"/>
+                                <TextBlock Text="Process Priority"
+                                           VerticalAlignment="Center"
+                                           Style="{ThemeResource BodyLargeStrongTextBlockStyle}" />
+                            </StackPanel>
+
+                            <ComboBox Grid.Column="1"
+                                      Width="240"
+                                      ItemsSource="{x:Bind ViewModel.ProcessPriorities}"
+                                      SelectedItem="{x:Bind ViewModel.SelectedProcessPriority, Mode=TwoWay}" />
+                        </Grid>
+
+                        <TextBlock Text="Adjust CPU process priority"
+                                   Style="{ThemeResource BodyTextBlockStyle}"
+                                   Opacity="0.7"/>
+
+                        <Border Height="1"
+                                Margin="0,6,0,6"
+                                Background="{ThemeResource DividerStrokeColorDefaultBrush}" />
+
+                        <!-- Polling -->
+                        <Grid ColumnSpacing="12">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                                <FontIcon Glyph="&#xE823;"
+                                          FontFamily="Segoe Fluent Icons"
+                                          VerticalAlignment="Center"
+                                          Margin="0,3,0,0"/>
+                                <TextBlock Text="Polling Interval (seconds)"
+                                           VerticalAlignment="Center"
+                                           Style="{ThemeResource BodyLargeStrongTextBlockStyle}" />
+                            </StackPanel>
+
+                            <NumberBox Grid.Column="1"
+                                       Width="150"
+                                       Minimum="1"
+                                       Maximum="20"
+                                       SpinButtonPlacementMode="Inline"
+                                       Value="{x:Bind ViewModel.PollingIntervalSeconds, Mode=TwoWay}" />
+                        </Grid>
+
+                        <TextBlock Text="Controls background process check frequency"
+                                   Style="{ThemeResource BodyTextBlockStyle}"
+                                   Opacity="0.7"/>
+
+                        <Border Height="1"
+                                Margin="0,6,0,6"
+                                Background="{ThemeResource DividerStrokeColorDefaultBrush}" />
+
+                        <!-- Window Behavior -->
+                        <Grid RowSpacing="12">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Row="0"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal"
+                                        Spacing="10"
+                                        VerticalAlignment="Center">
+                                <FontIcon Glyph="&#xE73F;"
+                                          FontFamily="Segoe Fluent Icons"
+                                          Margin="0,3,0,0"/>
+                                <TextBlock Text="Window Behavior"
+                                           Style="{ThemeResource BodyLargeStrongTextBlockStyle}" />
+                            </StackPanel>
+
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="0"
+                                       Text="Minimize"
+                                       VerticalAlignment="Center"/>
+                            <ComboBox Grid.Row="1"
+                                      Grid.Column="1"
+                                      Width="180"
+                                      HorizontalAlignment="Right"
+                                      SelectedValuePath="Content"
+                                      SelectedValue="{x:Bind MinimizeBehavior, Mode=TwoWay}">
+                                <ComboBoxItem Content="To Tray"/>
+                                <ComboBoxItem Content="To Taskbar"/>
+                            </ComboBox>
+
+                            <TextBlock Grid.Row="2"
+                                       Grid.Column="0"
+                                       Text="Exit"
+                                       VerticalAlignment="Center"/>
+                            <ComboBox Grid.Row="2"
+                                      Grid.Column="1"
+                                      Width="180"
+                                      HorizontalAlignment="Right"
+                                      SelectedValuePath="Content"
+                                      SelectedValue="{x:Bind ExitBehavior, Mode=TwoWay}">
+                                <ComboBoxItem Content="Minimize to Tray"/>
+                                <ComboBoxItem Content="Exit App"/>
+                            </ComboBox>
+                        </Grid>
+
+                        <Border Height="1"
+                                Margin="0,6,0,6"
+                                Background="{ThemeResource DividerStrokeColorDefaultBrush}" />
+
+                        <!-- Auto launch on boot -->
+                        <Grid ColumnSpacing="12">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                                <FontIcon Glyph="&#xE7E8;"
+                                          FontFamily="Segoe Fluent Icons"
+                                          Margin="0,3,0,0"/>
+                                <TextBlock Text="Auto launch on boot"
+                                           Style="{ThemeResource BodyLargeStrongTextBlockStyle}" />
+                            </StackPanel>
+
+                            <ToggleSwitch Grid.Column="1"
+                                          Header=""
+                                          IsOn="{x:Bind ViewModel.AutoLaunchOnBoot, Mode=TwoWay}" />
+                        </Grid>
+
+                        <TextBlock Text="Automatically starts this app when Windows starts."
+                                   Style="{ThemeResource BodyTextBlockStyle}"
+                                   Opacity="0.7"/>
+
+                        <Border Height="1"
+                                Margin="0,6,0,6"
+                                Background="{ThemeResource DividerStrokeColorDefaultBrush}" />
+
+                        <!-- Hotkey -->
+                        <Grid RowSpacing="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Row="0"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal"
+                                        Spacing="10"
+                                        VerticalAlignment="Center">
+                                <FontIcon Glyph="&#xE765;"
+                                          FontFamily="Segoe Fluent Icons"
+                                          Margin="0,3,0,0"/>
+                                <TextBlock Text="Foreground hotkey"
+                                           Style="{ThemeResource BodyLargeStrongTextBlockStyle}" />
+                            </StackPanel>
+
+                            <ToggleSwitch Grid.Row="0"
+                                          Grid.Column="1"
+                                          Header=""
+                                          HorizontalAlignment="Right"
+                                          IsOn="{x:Bind ViewModel.ForegroundHotkeyEnabled, Mode=TwoWay}" />
+
+                            <TextBox Grid.Row="1"
+                                     Grid.ColumnSpan="2"
+                                     PlaceholderText="Ctrl + Shift + Alt + Q"
+                                     IsEnabled="{x:Bind ViewModel.ForegroundHotkeyEnabled, Mode=OneWay}"
+                                     IsReadOnly="True"
+                                     KeyDown="HotkeyTextBox_KeyDown"
+                                     Text="{x:Bind ViewModel.ForegroundHotkey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        </Grid>
+
+                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Opacity="0.7">
+                                    <Run Text="Used to bring this app to foreground. Turn off to disable hotkey."/>
+                                    <LineBreak/>
+                                    <LineBreak/>
+                                    <Run Text="Valid combinations:" FontWeight="SemiBold"/>
+                                    <LineBreak/>
+                                    <Run Text="• Ctrl / Alt / Shift + Key"/>
+                                    <LineBreak/>
+                                    <Run Text="• Ctrl + Shift + Key"/>
+                                    <LineBreak/>
+                                    <Run Text="• Ctrl + Alt + Key"/>
+                                    <LineBreak/>
+                                    <Run Text="• Shift + Alt + Key"/>
+                                    <LineBreak/>
+                                    <Run Text="• Ctrl + Shift + Alt + Key"/>
+                        </TextBlock>
+                        <Border Height="1"
+                                Margin="0,6,0,6"
+                                Background="{ThemeResource DividerStrokeColorDefaultBrush}" />
+
+                        <Grid ColumnSpacing="12">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                                <FontIcon Glyph="&#xE74D;"
+                                          FontFamily="Segoe Fluent Icons"
+                                          Margin="0,3,0,0"/>
+                                <TextBlock Text="Reset all settings"
+                                           Style="{ThemeResource BodyLargeStrongTextBlockStyle}" />
+                            </StackPanel>
+
+                            <Button Grid.Column="1"
+                                    Content="Reset"
+                                    Click="ResetSettingsButton_Click"
+                                    Width="100"
+                                    Style="{StaticResource AccentButtonStyle}"
+                                    FontWeight="Medium"/>
+                        </Grid>
+
+                        <TextBlock Text="Deletes config.json and restarts the app with default settings."
+                                   Style="{ThemeResource BodyTextBlockStyle}"
+                                   Opacity="0.7"/>
+
+
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>

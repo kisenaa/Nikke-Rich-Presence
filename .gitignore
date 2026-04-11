@@ -49,3 +49,32 @@ tailwind.config.js
 tsconfig.node.json
 .tailwind.config.js
 .tsconfig.node.json
+
+# Build output
+bin/
+obj/
+BundleArtifacts/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# MSIX / packaging
+AppPackages/
+*.msix
+*.msixbundle
+*.appx
+*.appxbundle
+
+# Certificates (MSIX signing)
+*.pfx
+*.cer
+
+# Publish output
+publish/
+
+# Logs
+*.log
