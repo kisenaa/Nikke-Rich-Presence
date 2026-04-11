@@ -12,7 +12,7 @@ namespace NikkeDiscordRPC.Views
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private const string VersionSourceUrl = "https://raw.githubusercontent.com/kisenaa/Nikke-Rich-Presence/main/version.txt";
+        private const string VersionSourceUrl = "https://raw.githubusercontent.com/kisenaa/Nikke-Rich-Presence/refs/heads/main/version.txt";
         private const string DownloadNowUrl = "https://github.com/kisenaa/Nikke-Rich-Presence/releases/latest";
         private const string LatestReleaseUrl = "https://github.com/kisenaa/Nikke-Rich-Presence/releases/latest";
 
