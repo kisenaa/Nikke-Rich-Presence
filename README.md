@@ -1,7 +1,9 @@
 ## :cyclone: Overview
 This is a Discord Rich Presence for Nikke (Goddess of Victory: Nikke) on PC client. (Nikke Discord Rich Presence)
 
-It will only active on your discord profile when nikke and discord client is open.
+It will only active on your discord profile when nikke and discord client is open. 
+
+Ignore the last part of pro tips info. There is no shorcut feature as it is already have built-in auto launch on startup
 
 ## 📁 Download
 You can download directly from [Releases page](https://github.com/kisenaa/Nikke-Rich-Presence/releases/tag/v2.0.0)
